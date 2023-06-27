@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./user.module.scss";
 import { useDispatch } from "react-redux";
-import { deletePeople, patchPeople } from "../../state/actions";
+import { deletePeople, putPeople } from "../../state/actions";
 import { useForm } from "react-hook-form";
 import { Input } from "../input/input";
 
@@ -10,7 +10,7 @@ const User = ({ props }) => {
 
     const dispatch = useDispatch();
     const onSubmit = (data) => {
-        dispatch(patchPeople({ id: props.id, name: data.Name }));
+        dispatch(putPeople({ id: props.id, name: data.Name }));
         setChangeOpen(false);
     };
 
@@ -54,8 +54,8 @@ const User = ({ props }) => {
             <div className={styles.id}>{props.id}</div>
             <div className={styles.name}>{props.name}</div>
             <div className={styles.buttons}>
-                <button onClick={() => setChangeOpen(true)}>&#9998;</button>
-                <button onClick={onDelete}>&#10060;</button>
+                <button onClick={() => setChangeOpen(true)}>Редактировать</button>
+                <button onClick={onDelete}>Удалить</button>
             </div>
         </div>
     );

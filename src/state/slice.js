@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createPeople, deletePeople, getPeoples, patchPeople } from "./actions";
+import { createPeople, deletePeople, getPeoples, putPeople } from "./actions";
 
 const initialState = {
     peoples: [],
@@ -41,11 +41,11 @@ export const peoplesSlice = createSlice({
                 state.error = action.payload;
             })
 
-            .addCase(patchPeople.pending, (state, action) => {
+            .addCase(putPeople.pending, (state, action) => {
                 state.error = null;
                 state.loading = true;
             })
-            .addCase(patchPeople.fulfilled, (state, action) => {
+            .addCase(putPeople.fulfilled, (state, action) => {
                 state.error = null;
                 state.loading = false;
                 const updatedPerson = action.payload;
@@ -56,7 +56,7 @@ export const peoplesSlice = createSlice({
                     state.peoples[index] = updatedPerson;
                 }
             })
-            .addCase(patchPeople.rejected, (state, action) => {
+            .addCase(putPeople.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             })
