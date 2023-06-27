@@ -34,4 +34,32 @@
             background-color: #dfdfdf;
         }
     }
+    .form {
+        width: 100%;
+        .input_container {
+            width: 100%;
+        }
+        display: flex;
+        button {
+            width: auto;
+            cursor: pointer;
+    
+            font-size: 20px;
+            border: none;
+            background: none;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 0px black;
+            color:  gray;        
+            transition: .4s;
+            &:hover {
+                color: black;
+                background-color: #dfdfdf;
+            }
+            &:active {
+                box-shadow: 0px 0px 10px 0px black;
+                background-color: #dfdfdf;
+            }
+        }
+    }
 }
