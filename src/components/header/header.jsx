@@ -5,34 +5,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "../input/input";
 
 const Header = () => {
-    function generateRandomEmail() {
-        const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
-        let email = "";
 
-        // Generate a random string of 10 characters
-        for (let i = 0; i < 10; i++) {
-            const randomIndex = Math.floor(Math.random() * characters.length);
-            email += characters[randomIndex];
-        }
-
-        // Add the domain part of the email
-        email += "@example.com";
-
-        return email;
-    }
-    function generateRandomPassword(length) {
-        const characters =
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
-        let password = "";
-
-        // Generate a random string of specified length
-        for (let i = 0; i < length; i++) {
-            const randomIndex = Math.floor(Math.random() * characters.length);
-            password += characters[randomIndex];
-        }
-
-        return password;
-    }
     const {
         register,
         formState: { errors },
@@ -45,8 +18,11 @@ const Header = () => {
         dispatch(
             createPeople({
                 name: data.Name,
-                email: generateRandomEmail(),
-                password: generateRandomPassword(10),
+                current_cell: 0,
+                first_dice: 0,
+                second_dice: 0,
+                resuld: 0,
+                game_status: "Roll the dice"
             })
         );
         reset()
